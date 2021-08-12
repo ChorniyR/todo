@@ -1,6 +1,5 @@
 from django.db.utils import IntegrityError
-from django.http import request
-from rest_framework import permissions, serializers, status
+from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
@@ -18,9 +17,6 @@ class TaskViewSet(ModelViewSet):
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
     permission_classes = [IsAuthenticated, IsOwner]
-
-    def perform_create(self, serializer):
-        return super().perform_create(serializer)
 
     def get_serializer_contexst(self):
         context = self.super().get_serializer_context()
