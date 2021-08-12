@@ -29,7 +29,7 @@ class TaskViewSet(ModelViewSet):
 
 class DaysetCreateAPIView(generics.CreateAPIView):
     """
-    View for creating daysets
+    A view for creating daysets.
     """
     queryset = Dayset.objects.all()
     serializer_class = DaysetSerializer
