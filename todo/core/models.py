@@ -21,14 +21,10 @@ class Dayset(models.Model):
 
 
 class Task(models.Model):
-    class State(models.TextChoices):
-        ACTIVE = 'a', ('Active')
-        COMPLETED = 'c', ('Completed')
-
     title = models.CharField(max_length=256) 
     details = models.TextField()
     creation_date = models.DateTimeField(auto_now=True)
-    state = models.CharField(max_length=1, choices=State.choices, default=State.ACTIVE)
+    is_active = models.BooleanField(default=True)
     dayset = models.ForeignKey(Dayset, on_delete=models.CASCADE)
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
 
