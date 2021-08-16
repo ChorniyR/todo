@@ -8,7 +8,7 @@ class TaskSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Task
-        fields = ['title', 'state', 'owner', 'details'] 
+        fields = ['id', 'title', 'is_active', 'owner', 'details'] 
 
     def create(self, validated_data):
         validated_data['dayset'] = Dayset.get_by_user(self.context['request'].user)
