@@ -1,17 +1,14 @@
 <template>
   <div class="home">
-    <h1>{{ title }}</h1>
+    <Content/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
+import Content from '../components/Content.vue'
+
 export default {
   name: 'Home',
-  data() {
-    return {
-      title: 'my first vue app'
-    }
-  }
+  components: { Content },
 }
 </script>
